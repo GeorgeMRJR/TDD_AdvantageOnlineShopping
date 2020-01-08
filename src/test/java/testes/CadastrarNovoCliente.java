@@ -31,7 +31,7 @@ public class CadastrarNovoCliente {
 			assertTrue(displayed_hiUser);
 		}
 		
-		//
+
 	}
 	
 	
