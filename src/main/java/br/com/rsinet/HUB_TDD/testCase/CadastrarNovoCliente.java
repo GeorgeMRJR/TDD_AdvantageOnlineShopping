@@ -33,8 +33,10 @@ public class CadastrarNovoCliente {
 	}
 	
 	@Test
-	public void DeveLogarClienteComSucesso(@Param(name = "userName")String userName, @Param(name = "password")String password) {
-		boolean usuarioLogado = new HomePage(driver).clicarUsuario().digitarUserName("teste5").digitarPassword("Abc123")
+	public void DeveLogarClienteComSucesso(
+			@Param(name = "userName")String userName, 
+			@Param(name = "password")String password) {
+		boolean usuarioLogado = new HomePage(driver).clicarUsuario().digitarUserName(userName).digitarPassword(password)
 				.clicarSingIN().usuarioLogado();
 
 		assertTrue(usuarioLogado);
