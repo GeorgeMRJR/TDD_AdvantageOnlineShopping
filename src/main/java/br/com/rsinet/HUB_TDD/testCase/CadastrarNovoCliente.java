@@ -19,7 +19,7 @@ import br.com.rsinet.HUB_TDD.suporte.Screenshot;
 import br.com.rsinet.HUB_TDD.suporte.Web;
 
 @RunWith(DataDrivenTestRunner.class)
-@DataLoader(filePaths = "CadastrarNovoClientePageObject.csv")
+@DataLoader(filePaths = "CadastrarNovoCliente.csv")
 public class CadastrarNovoCliente {
 
 	@Rule
