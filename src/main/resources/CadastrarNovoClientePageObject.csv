@@ -1,3 +1,11 @@
 DeveLogarClienteComSucesso,userName,password
                           ,teste5,Abc123
                           ,teste6,Abc1234
+                          
+DeveCadasTrarUmNovoClienteComSucesso,nomeusuario,senha,Resenha,email,primeiroNome,segundoNome,telefone,continente,cidade,estado,endereco,codPostal
+                                    ,autoTeste00,Abc123,Abc123,teste1@teste.com,teste1,da silva,989997979,Brazil,sorocaba,SP,Av.gal,18080884
+                                    ,autoTeste22,Abc123,Abc123,teste1@teste.com,teste1,da silva,989997979,Brazil,sorocaba,SP,Av.gal,18080884
+                                    ,autoTeste33,Abc123,Abc123,teste1@teste.com,teste1,da silva,989997979,Brazil,sorocaba,SP,Av.gal,18080884
+
+DeveCadasTrarUmNovoClienteComFalha,nomeusuario,senha,Resenha,email,primeiroNome,segundoNome,telefone,continente,cidade,estado,endereco,codPostal
+                                    ,autoTeste0,Abc123,Abc123,teste1@teste.com,teste1,da silva,989997979,Brazil,sorocaba,SP,Av.gal,18080884

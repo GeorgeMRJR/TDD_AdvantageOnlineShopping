@@ -9,6 +9,7 @@ Teste TDD da loja online "Advantage Online Shopping"
 * Tirar print dos reultados, criar um report, criar massa de dados
 
 ++++Anotações++++
+
 08/01
 Este modelo de pageObjects esta dando alguns problemas >refatorar
 implementar (TODO) cassos de testes acesarUmPOrodutoPelaHome , BuscarUmProdutoPelaHome, massa de dados, print

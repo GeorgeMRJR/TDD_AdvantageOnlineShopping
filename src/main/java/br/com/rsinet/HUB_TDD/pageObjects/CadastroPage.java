@@ -2,7 +2,6 @@ package br.com.rsinet.HUB_TDD.pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class CadastroPage extends BasePage {
@@ -11,7 +10,8 @@ public class CadastroPage extends BasePage {
 		super(driver);
 	}
 
-	public CadastroPage DigitarNomeUsuario(String NomeUsuario) {
+	public CadastroPage DigitarNomeUsuario(String NomeUsuario){
+		
 		driver.findElement(By.name("usernameRegisterPage")).sendKeys(NomeUsuario);
 		return this;
 	}
@@ -77,10 +77,15 @@ public class CadastroPage extends BasePage {
 		driver.findElement(By.name("i_agree")).click();
 		return this;
 	}
+	public CadastroPage textoDoErro() {
+		driver.findElement(By.xpath("//label[@class='center block smollMargin marked-element']")).getText();
+		return this;
+	}
 
 	public HomePage ClicarEmRegistrar() {
-		driver.findElement(By.name("register_btnundefined")).click();
+		driver.findElement(By.id("register_btnundefined")).click();
 		return new HomePage(driver);
 	}
+	
 
 }

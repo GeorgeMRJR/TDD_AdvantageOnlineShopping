@@ -10,6 +10,7 @@ public class Web {
 		//System.setProperty("webdriver.chrome.driver", "/Users/georgejunior/Documents/chromedriver");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//		WebDriverWait
 		driver.get("https://www.advantageonlineshopping.com/");
 		return driver;
 	}
