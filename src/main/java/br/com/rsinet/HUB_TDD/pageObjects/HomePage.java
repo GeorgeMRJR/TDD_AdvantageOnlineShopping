@@ -10,7 +10,6 @@ import org.openqa.selenium.WebElement;
 public class HomePage extends BasePage {
 
 
-
 	public HomePage(WebDriver driver) {
 		super(driver);
 	}
@@ -67,13 +66,14 @@ public class HomePage extends BasePage {
 
 	}
 
-	public ProdutoPage clicarCategoria(String idCategoria) {
+	public CategoriaProdutoPage clicarCategoria(String idCategoria) {
 		
-		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		WebElement element = driver.findElement(By.id(""+idCategoria+""));
-		executor.executeScript("arguments[0].click();", element);
 
-		return new ProdutoPage(driver);
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click();", element);
+		
+		return new CategoriaProdutoPage(driver);
 	}
 
 }

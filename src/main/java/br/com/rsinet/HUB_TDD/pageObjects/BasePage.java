@@ -1,6 +1,7 @@
 package br.com.rsinet.HUB_TDD.pageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 public class BasePage {
@@ -19,5 +20,13 @@ public class BasePage {
 			
 		}
 		 return usuarioLogado;
+	}
+	public BasePage clicarLupa() {
+		driver.findElement(By.id("menuSearch")).click();
+		return this;
+	}
+	public ProdutoPage buscar(String produto) {
+		driver.findElement(By.id("autoComplete")).sendKeys(""+produto+"" + Keys.ENTER);
+		return new ProdutoPage(driver);
 	}
 }

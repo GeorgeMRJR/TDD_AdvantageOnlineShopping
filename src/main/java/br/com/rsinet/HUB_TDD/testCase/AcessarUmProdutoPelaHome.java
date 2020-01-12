@@ -5,7 +5,6 @@ import org.easetech.easytest.annotation.Param;
 import org.easetech.easytest.runner.DataDrivenTestRunner;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
@@ -22,7 +21,7 @@ public class AcessarUmProdutoPelaHome {
 		driver = Web.createChrome();
 	}
 	
-	@Test
+	//@Test
 	public void deveAbrirPaginaDeUmProdutoPelaCategoria(
 			@Param(name = "idCategoria") String idCategoria,
 			@Param(name = "produto") String produto) {
@@ -33,7 +32,7 @@ public class AcessarUmProdutoPelaHome {
 	
 	@After
 	public void tearDown() throws InterruptedException {
-		Thread.sleep(5000);
-		//driver.quit();
+		Thread.sleep(3000);
+		driver.quit();
 	}
 }
