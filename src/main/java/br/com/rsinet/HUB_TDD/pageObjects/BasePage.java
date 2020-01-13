@@ -6,10 +6,12 @@ import org.openqa.selenium.WebDriver;
 
 public class BasePage {
 	protected WebDriver driver;
-
+	
+	
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
 	}
+
 	
 	public boolean usuarioLogado() {
 		 boolean usuarioLogado;
@@ -25,8 +27,8 @@ public class BasePage {
 		driver.findElement(By.id("menuSearch")).click();
 		return this;
 	}
-	public ProdutoPage buscar(String produto) {
+	public BuscaPage buscar(String produto) {
 		driver.findElement(By.id("autoComplete")).sendKeys(""+produto+"" + Keys.ENTER);
-		return new ProdutoPage(driver);
+		return new BuscaPage(driver);
 	}
 }

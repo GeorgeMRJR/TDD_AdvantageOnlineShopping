@@ -1,6 +1,7 @@
 package br.com.rsinet.HUB_TDD.pageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -83,7 +84,7 @@ public class CadastroPage extends BasePage {
 	}
 
 	public HomePage ClicarEmRegistrar() {
-		driver.findElement(By.id("register_btnundefined")).click();
+		driver.findElement(By.id("register_btnundefined")).sendKeys(Keys.ENTER);
 		return new HomePage(driver);
 	}
 	

@@ -1,3 +1,6 @@
-deveAbrirPaginaDeUmProdutoPelaCategoria,idCategoria,produto
-                                       ,headphonesTxt,HP H2310 In-ear Headset
-                                       ,laptopsTxt,HP Stream - 11-d020nr Laptop
+deveAbrirPaginaDeUmProdutoPelaCategoriaComSucesso,idCategoria,produto
+                                                 ,headphonesTxt,HP H2310 In-ear Headset
+                                                 ,laptopsTxt,HP Stream - 11-d020nr Laptop
+deveAbrirPaginaDeUmProdutoPelaCategoriaComFalha,idCategoria,produto
+                                               ,headphonesTxt,Stream - 11-d020nr Laptop
+                                               ,laptopsTxt,HP HP H2310 In-ear Headset

@@ -9,6 +9,7 @@ import org.easetech.easytest.runner.DataDrivenTestRunner;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
+import org.junit.Test;
 import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -32,19 +33,18 @@ public class CadastrarNovoCliente {
 		driver = Web.createChrome();
 	}
 
-	//@Test
+//	@Test
 	public void DeveLogarClienteComSucesso(@Param(name = "userName") String userName,
 			@Param(name = "password") String password) {
 		boolean usuarioLogado = new HomePage(driver).clicarUsuario().digitarUserName(userName).digitarPassword(password)
 				.clicarSingIN().usuarioLogado();
 
 		assertTrue(usuarioLogado);
-		String nomeDoArquivo = "C:\\Users\\george.junior\\eclipse-XPTO\\TDD_AdvantageOnlineShopping\\evidencias\\"
-				+ Generator.dataHoraParaArquivo() + test.getMethodName() + ".png";
+		String nomeDoArquivo = "evidencias\\" + Generator.dataHoraParaArquivo() + test.getMethodName() + ".png";
 		Screenshot.tirar(driver, nomeDoArquivo);
 	}
 
-//	@Test
+	@Test
 	public void DeveCadasTrarUmNovoClienteComSucesso(
 			@Param(name = "nomeusuario") String nomeusuario,
 			@Param(name = "senha") String senha,
@@ -82,6 +82,8 @@ public class CadastrarNovoCliente {
 		
 		assertTrue(usuarioLogado);
 		
+		String nomeDoArquivo = "evidencias\\" + Generator.dataHoraParaArquivo() + test.getMethodName() + ".png";
+		Screenshot.tirar(driver, nomeDoArquivo);
 	}
 	
 	//@Test
