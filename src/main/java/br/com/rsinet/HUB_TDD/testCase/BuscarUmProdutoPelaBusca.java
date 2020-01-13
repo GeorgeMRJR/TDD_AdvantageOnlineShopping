@@ -2,6 +2,7 @@ package br.com.rsinet.HUB_TDD.testCase;
 
 import static org.junit.Assert.assertEquals;
 
+import org.apache.log4j.Logger;
 import org.easetech.easytest.annotation.DataLoader;
 import org.easetech.easytest.annotation.Param;
 import org.easetech.easytest.runner.DataDrivenTestRunner;
@@ -21,14 +22,17 @@ import br.com.rsinet.HUB_TDD.suporte.Web;
 @RunWith(DataDrivenTestRunner.class)
 @DataLoader(filePaths = "BuscarUmProdutoPelaBusca.csv")
 public class BuscarUmProdutoPelaBusca {
+	//private static Logger Log = Logger.getLogger(BuscarUmProdutoPelaBusca.class.getName());
 	
 	@Rule
 	public TestName test = new TestName();
 	
 	private WebDriver driver;
+	private Logger Log;
 
 	@Before
 	public void setUp() {
+		Log = Logger.getLogger(BuscarUmProdutoPelaBusca.class.getName());
 		driver = Web.createChrome();
 	}
 
@@ -40,6 +44,7 @@ public class BuscarUmProdutoPelaBusca {
 		
 		String nomeDoArquivo = "evidencias\\" + Generator.dataHoraParaArquivo() + test.getMethodName() + ".png";
 		Screenshot.tirar(driver, nomeDoArquivo);
+
 
 	}
 
@@ -57,6 +62,7 @@ public class BuscarUmProdutoPelaBusca {
 	@After
 	public void tearDown() throws InterruptedException {
 		Thread.sleep(3000);
+		Log.info("OK");
 		driver.quit();
 	}
 

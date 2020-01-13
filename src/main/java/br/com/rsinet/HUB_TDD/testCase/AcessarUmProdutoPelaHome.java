@@ -2,6 +2,7 @@ package br.com.rsinet.HUB_TDD.testCase;
 
 import static org.junit.Assert.assertEquals;
 
+import org.apache.log4j.Logger;
 import org.easetech.easytest.annotation.DataLoader;
 import org.easetech.easytest.annotation.Param;
 import org.easetech.easytest.runner.DataDrivenTestRunner;
@@ -21,6 +22,8 @@ import br.com.rsinet.HUB_TDD.suporte.Web;
 @RunWith(DataDrivenTestRunner.class)
 @DataLoader(filePaths = "AcessarUmProdutoPelaHome.csv")
 public class AcessarUmProdutoPelaHome {
+	private static Logger Log;
+	
 	@Rule
 	public TestName test = new TestName();
 	
@@ -28,6 +31,7 @@ public class AcessarUmProdutoPelaHome {
 
 	@Before
 	public void setUp() {
+		Log = Logger.getLogger(BuscarUmProdutoPelaBusca.class.getName());
 		driver = Web.createChrome();
 	}
 

@@ -3,6 +3,7 @@ package br.com.rsinet.HUB_TDD.testCase;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.apache.log4j.Logger;
 import org.easetech.easytest.annotation.DataLoader;
 import org.easetech.easytest.annotation.Param;
 import org.easetech.easytest.runner.DataDrivenTestRunner;
@@ -19,21 +20,22 @@ import br.com.rsinet.HUB_TDD.suporte.Generator;
 import br.com.rsinet.HUB_TDD.suporte.Screenshot;
 import br.com.rsinet.HUB_TDD.suporte.Web;
 
+
 @RunWith(DataDrivenTestRunner.class)
 @DataLoader(filePaths = "CadastrarNovoCliente.csv")
 public class CadastrarNovoCliente {
-
 	@Rule
 	public TestName test = new TestName();
 
 	private WebDriver driver;
-
+	private Logger Log;
 	@Before
 	public void setUp() {
+		 Log = Logger.getLogger(CadastrarNovoCliente.class.getName());
 		driver = Web.createChrome();
 	}
 
-//	@Test
+	@Test
 	public void DeveLogarClienteComSucesso(@Param(name = "userName") String userName,
 			@Param(name = "password") String password) {
 		boolean usuarioLogado = new HomePage(driver).clicarUsuario().digitarUserName(userName).digitarPassword(password)
@@ -42,9 +44,10 @@ public class CadastrarNovoCliente {
 		assertTrue(usuarioLogado);
 		String nomeDoArquivo = "evidencias\\" + Generator.dataHoraParaArquivo() + test.getMethodName() + ".png";
 		Screenshot.tirar(driver, nomeDoArquivo);
+		Log.info("OK");
 	}
 
-	@Test
+//	@Test
 	public void DeveCadasTrarUmNovoClienteComSucesso(
 			@Param(name = "nomeusuario") String nomeusuario,
 			@Param(name = "senha") String senha,
@@ -84,9 +87,10 @@ public class CadastrarNovoCliente {
 		
 		String nomeDoArquivo = "evidencias\\" + Generator.dataHoraParaArquivo() + test.getMethodName() + ".png";
 		Screenshot.tirar(driver, nomeDoArquivo);
+		Log.info("OK");
 	}
 	
-	//@Test
+//	@Test
 	public void DeveCadasTrarUmNovoClienteComFalha(
 			@Param(name = "nomeusuario") String nomeusuario,
 			@Param(name = "senha") String senha,
@@ -123,7 +127,7 @@ public class CadastrarNovoCliente {
 		.usuarioLogado();
 		
 		assertFalse(usuarioLogado);
-		
+		Log.info("OK");
 	}
 
 	@After
