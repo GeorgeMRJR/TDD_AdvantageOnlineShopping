@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class BuscaPage extends BasePage {
 
+
 	public BuscaPage(WebDriver driver) {
 		super(driver);
 	}

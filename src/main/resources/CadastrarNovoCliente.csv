@@ -1,8 +1,0 @@
-DeveLogarClienteComSucesso,userName,password
-                          ,autoTeste000,Abc123
-DeveCadasTrarUmNovoClienteComSucesso,nomeusuario,senha,Resenha,email,primeiroNome,segundoNome,telefone,continente,cidade,estado,endereco,codPostal
-                                    ,autoTeste0000,Abc123,Abc123,teste1@teste.com,teste1,da silva,989997979,Brazil,sorocaba,SP,Av.gal,18080884
-                                    ,autoTeste2200,Abc123,Abc123,teste1@teste.com,teste1,da silva,989997979,Brazil,sorocaba,SP,Av.gal,18080884
-                                    ,autoTeste3300,Abc123,Abc123,teste1@teste.com,teste1,da silva,989997979,Brazil,sorocaba,SP,Av.gal,18080884
-DeveCadasTrarUmNovoClienteComFalha,nomeusuario,senha,Resenha,email,primeiroNome,segundoNome,telefone,continente,cidade,estado,endereco,codPostal
-                                    ,autoTeste0,Abc123,Abc123,teste1@teste.com,teste1,da silva,989997979,Brazil,sorocaba,SP,Av.gal,18080884

@@ -74,6 +74,8 @@ public class HomePage extends BasePage {
 		executor.executeScript("arguments[0].click();", element);
 		
 		return new CategoriaProdutoPage(driver);
+		
+		
 	}
 
 }

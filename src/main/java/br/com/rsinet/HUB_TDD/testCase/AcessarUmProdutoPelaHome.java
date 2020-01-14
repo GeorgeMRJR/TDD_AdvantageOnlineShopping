@@ -1,70 +1,61 @@
 package br.com.rsinet.HUB_TDD.testCase;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-import org.apache.log4j.Logger;
-import org.easetech.easytest.annotation.DataLoader;
-import org.easetech.easytest.annotation.Param;
-import org.easetech.easytest.runner.DataDrivenTestRunner;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.TestName;
-import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import br.com.rsinet.HUB_TDD.pageObjects.HomePage;
+import br.com.rsinet.HUB_TDD.suporte.ExcelUtils;
 import br.com.rsinet.HUB_TDD.suporte.Generator;
 import br.com.rsinet.HUB_TDD.suporte.Screenshot;
 import br.com.rsinet.HUB_TDD.suporte.Web;
 
-@RunWith(DataDrivenTestRunner.class)
-@DataLoader(filePaths = "AcessarUmProdutoPelaHome.csv")
 public class AcessarUmProdutoPelaHome {
-	private static Logger Log;
-	
-	@Rule
-	public TestName test = new TestName();
-	
+
 	private WebDriver driver;
 
 	@Before
 	public void setUp() {
-		Log = Logger.getLogger(BuscarUmProdutoPelaBusca.class.getName());
 		driver = Web.createChrome();
 	}
 
-	 @Test
-	public void deveAbrirPaginaDeUmProdutoPelaCategoriaComSucesso(@Param(name = "idCategoria") String idCategoria,
-			@Param(name = "produto") String produto) {
+//	@Test
+	public void deveAbrirPaginaDeUmProdutoPelaCategoriaComSucesso() throws Exception {
+
+		ExcelUtils.setExcelFile("AcessarUmProdutoPelaHome_P");
+		String idCategoria = ExcelUtils.getCellData(1, 1);
+		String produto = ExcelUtils.getCellData(1, 2);
 
 		String produtoPage = new HomePage(driver).clicarCategoria(idCategoria).ClicarEm(produto).produtoAtualTxt();
 
 		assertEquals(produto.toLowerCase(), produtoPage.toLowerCase());
-		
-		String nomeDoArquivo = "evidencias\\" + Generator.dataHoraParaArquivo() + test.getMethodName() + ".png";
+
+		String testName = new Throwable().getStackTrace()[0].getMethodName();
+		String nomeDoArquivo = "evidencias\\" + Generator.dataHoraParaArquivo() + testName + ".png";
 		Screenshot.tirar(driver, nomeDoArquivo);
 	}
 
-	//@Test
-	public void deveAbrirPaginaDeUmProdutoPelaCategoriaComFalha(@Param(name = "idCategoria") String idCategoria,
-			@Param(name = "produto") String produto) {
-
-		String atual = new HomePage(driver).clicarCategoria(idCategoria).ClicarEm(produto).produtoAtualTxt();
-		//String encontrou = new HomePage(driver).clicarCategoria(idCategoria).ClicarEm(produto).encontrou();
-		System.out.println(atual);
-		//System.out.println(encontrou);
-
-		//assertFalse(false);
+	@Test
+	public void deveAbrirPaginaDeUmProdutoPelaCategoriaComFalha() throws Exception {
+		ExcelUtils.setExcelFile("AcessarUmProdutoPelaHome_N");
+		String idCategoria = ExcelUtils.getCellData(1, 1);
+		String produto = ExcelUtils.getCellData(1, 2);
 		
-		String nomeDoArquivo = "evidencias\\" + Generator.dataHoraParaArquivo() + test.getMethodName() + ".png";
+		Boolean produtoPageValido = new HomePage(driver).clicarCategoria(idCategoria).ClicarEmProdutoValido(produto);
+
+		assertTrue(produtoPageValido);
+
+		String testName = new Throwable().getStackTrace()[0].getMethodName();
+		String nomeDoArquivo = "evidencias\\" + Generator.dataHoraParaArquivo() + testName + ".png";
 		Screenshot.tirar(driver, nomeDoArquivo);
 	}
 
 	@After
 	public void tearDown() throws InterruptedException {
-		Thread.sleep(3000);
 		driver.quit();
 	}
 }
