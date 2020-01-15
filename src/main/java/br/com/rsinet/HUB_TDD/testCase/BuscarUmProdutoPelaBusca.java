@@ -40,7 +40,7 @@ public class BuscarUmProdutoPelaBusca {
 	@Test
 	public void DeveRealisarUmaBuscaComFalha() throws Exception {
 		ExcelUtils.setExcelFile("BuscarUmProdutoPelaBusca_N");
-		String produto = ExcelUtils.getCellData(1, 1);
+		String produto = ExcelUtils.getCellData(2, 1);
 
 		String buscaNegativa = new BasePage(driver).buscar(produto).naoEncontrou().rerultadoBuscaNegativa();
 		String esperado = "No results for \"" + produto + "\"";

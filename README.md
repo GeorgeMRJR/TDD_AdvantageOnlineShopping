@@ -20,11 +20,11 @@ Teste TDD da loja online "Advantage Online Shopping"
 		
 	✓Test Cases
 		✓AcessarUmProdutoPelaHome - simula a ação do usuário acessando a home clicando em uma categoria de produco e clicando em uma produto
-									  verifica se o produto clicado é o produto esperado
+									 verifica se o produto clicado é o produto esperado
 		✓BuscarUmProdutoPelaBusca - simula a ação do usuário acessando a home clicando no campo buscar e digitando um item a ser buscado
-									  verifica se o produto buscado foi encontrado
+									 verifica se o produto buscado foi encontrado
 		✓CadastrarNovoCliente - 	simula a ação do usuário acessando a home clicando em usuário, nova conta, preenche os campos, clicando em registrar
-									  verifica se o cliente foi cadastrado
+									 verifica se o cliente foi cadastrado
 	
 	✓Suporte
 		✓ ExelUtils - classe responsável por gerir um arquivo do exel com seus gets e sets

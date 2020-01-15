@@ -10,9 +10,8 @@ public class ErrorPage extends BasePage {
 	}
 
 	public String rerultadoBuscaNegativa() throws InterruptedException {
-		Thread.sleep(2000);
 
-		return driver.findElement(By.xpath("//span[@class='ng-binding']")).getText();
+		return driver.findElement(By.xpath("/html[1]/body[1]/div[3]/section[1]/article[1]/div[3]/div[1]/label[1]/span[1]")).getText();
 
 	}
 
