@@ -10,7 +10,7 @@ Teste TDD da loja online "Advantage Online Shopping"
 
 ++++Considerações++++
 
-✓ Page Objects
+	✓ Page Objects
 		✓BasePage - SuperClasse (Representa funcionalidades que todas as paginas tem em comum) com métodos de uso comuns das subclasses
 		✓BuscaPage  - Abstração da pagina de resultado da busca com suas respectivas funcionalidades
 		✓CadastroPage - Abstração da pagina de cadastro com suas respectivas funcionalidades
