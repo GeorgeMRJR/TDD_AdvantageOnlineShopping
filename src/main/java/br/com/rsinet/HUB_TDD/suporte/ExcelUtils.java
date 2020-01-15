@@ -24,7 +24,7 @@ public class ExcelUtils {
 			// Open the Excel file
 
 			FileInputStream ExcelFile = new FileInputStream(
-					"C:\\Users\\george.junior\\eclipse-XPTO\\TDD_AdvantageOnlineShopping\\src\\main\\resources\\TDD_AdvantageOnlineShoppingData.xlsx");
+					"src/main/resources/TDD_AdvantageOnlineShoppingData.xlsx");
 
 			// Access the required test data sheet
 

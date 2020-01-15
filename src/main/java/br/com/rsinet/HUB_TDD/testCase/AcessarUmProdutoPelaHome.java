@@ -1,7 +1,7 @@
 package br.com.rsinet.HUB_TDD.testCase;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 import org.junit.After;
 import org.junit.Before;
@@ -40,14 +40,14 @@ public class AcessarUmProdutoPelaHome {
 	}
 
 	@Test
-	public void deveAbrirPaginaDeUmProdutoPelaCategoriaComFalha() throws Exception {
+	public void deveAbrirPaginaDeUmProdutoPelaCategoriaComFalha() throws Exception  {
 		ExcelUtils.setExcelFile("AcessarUmProdutoPelaHome_N");
 		String idCategoria = ExcelUtils.getCellData(1, 1);
 		String produto = ExcelUtils.getCellData(1, 2);
 		
-		Boolean produtoPageValido = new HomePage(driver).clicarCategoria(idCategoria).ClicarEmProdutoValido(produto);
+		String produtoPageValido = new HomePage(driver).clicarCategoria(idCategoria).ClicarEmProdutoValido(produto);
 
-		assertTrue(produtoPageValido);
+		assertFalse(produtoPageValido.contains("product"));
 
 		String testName = new Throwable().getStackTrace()[0].getMethodName();
 		String nomeDoArquivo = "evidencias\\" + Generator.dataHoraParaArquivo() + testName + ".png";
