@@ -23,7 +23,7 @@ public class AcessarUmProdutoPelaHome {
 		driver = Web.createChrome();
 	}
 
-//	@Test
+	@Test
 	public void deveAbrirPaginaDeUmProdutoPelaCategoriaComSucesso() throws Exception {
 
 		ExcelUtils.setExcelFile("AcessarUmProdutoPelaHome_P");

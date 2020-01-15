@@ -8,13 +8,32 @@ Teste TDD da loja online "Advantage Online Shopping"
 * Para cada senario criar Testes positivos e negativos
 * Tirar print dos reultados, criar um report, criar massa de dados
 
-++++Anota��es++++
+++++Considerações++++
 
-08/01
-Este modelo de pageObjects esta dando alguns problemas >refatorar
-implementar (TODO) cassos de testes acesarUmPOrodutoPelaHome , BuscarUmProdutoPelaHome, massa de dados, print
-
-09/01
-No dia 8 obtive um problema com o commit e nao foi salvo no git minhas alteracoes.
-Implementado funcao Screenshots e massa de dados e novo pageObject
-Implementar (TODO) cassos de testes acesarUmPOrodutoPelaHome , BuscarUmProdutoPelaHome
+✓ Page Objects
+		✓BasePage - SuperClasse (Representa funcionalidades que todas as paginas tem em comum) com métodos de uso comuns das subclasses
+		✓BuscaPage  - Abstração da pagina de resultado da busca com suas respectivas funcionalidades
+		✓CadastroPage - Abstração da pagina de cadastro com suas respectivas funcionalidades
+		✓CategoriaProdutoPage - Abstração de uma pagina de categoria de produtos generica
+		✓ErroPage - Abstração da pagina de item não encontrado
+		✓HomePage - Abstração da home page com suas respectivas funcionalidades
+		
+	✓Test Cases
+		✓AcessarUmProdutoPelaHome - simula a ação do usuário acessando a home clicando em uma categoria de produco e clicando em uma produto
+									  verifica se o produto clicado é o produto esperado
+		✓BuscarUmProdutoPelaBusca - simula a ação do usuário acessando a home clicando no campo buscar e digitando um item a ser buscado
+									  verifica se o produto buscado foi encontrado
+		✓CadastrarNovoCliente - 	simula a ação do usuário acessando a home clicando em usuário, nova conta, preenche os campos, clicando em registrar
+									  verifica se o cliente foi cadastrado
+	
+	✓Suporte
+		✓ ExelUtils - classe responsável por gerir um arquivo do exel com seus gets e sets
+		✓Generator - classe responsável por gerar uma string com a data e hora atual usada no Screenshot
+		✓Screenshot - classe responsável por tirar uma Screenshot do resultado do test
+		✓Web - Classe responsável em gerar  WebDriver e cumprir todos os requisitos pré-teste
+		
+	✓Resources
+		✓TDD_AdvantageOnlineShoppingData.xlsx massa de dados controlada via apache poi
+		
+	✓Evidencias
+		✓  DataHora_nomeDoTest.png - evidencia que o teste foi realizado

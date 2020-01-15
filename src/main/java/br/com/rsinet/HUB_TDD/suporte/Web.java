@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Web {
 	public static WebDriver createChrome() {
-		System.setProperty("webdriver.chrome.driver", "/Users/georgejunior/Documents/chromedriver");
+//		System.setProperty("webdriver.chrome.driver", "/Users/georgejunior/Documents/chromedriver");
 		WebDriver driver = new ChromeDriver();
 		driver.manage ().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

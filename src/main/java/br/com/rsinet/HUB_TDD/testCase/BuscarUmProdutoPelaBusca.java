@@ -45,7 +45,7 @@ public class BuscarUmProdutoPelaBusca {
 		String buscaNegativa = new BasePage(driver).buscar(produto).naoEncontrou().rerultadoBuscaNegativa();
 		String esperado = "No results for \"" + produto + "\"";
 
-		assertEquals(esperado, buscaNegativa);
+		assertEquals(esperado.toLowerCase(), buscaNegativa.toLowerCase());
 
 		String testName = new Throwable().getStackTrace()[0].getMethodName();
 		String nomeDoArquivo = "evidencias\\" + Generator.dataHoraParaArquivo() + testName + ".png";
