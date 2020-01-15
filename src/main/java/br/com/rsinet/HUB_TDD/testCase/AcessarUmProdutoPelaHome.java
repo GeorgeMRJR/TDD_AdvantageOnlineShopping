@@ -17,7 +17,7 @@ import br.com.rsinet.HUB_TDD.suporte.Web;
 public class AcessarUmProdutoPelaHome {
 
 	private WebDriver driver;
-
+ 
 	@Before
 	public void setUp() {
 		driver = Web.createChrome();
