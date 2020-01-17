@@ -3,9 +3,9 @@ package br.com.rsinet.HUB_TDD.pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class ErrorPage extends BasePage {
+public class ErrorProdutoPage extends BasePage {
 
-	public ErrorPage(WebDriver driver) {
+	public ErrorProdutoPage(WebDriver driver) {
 		super(driver);
 	}
 

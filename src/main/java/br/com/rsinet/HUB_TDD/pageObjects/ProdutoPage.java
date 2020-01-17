@@ -4,10 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class BuscaPage extends BasePage {
+public class ProdutoPage extends BasePage {
 
-
-	public BuscaPage(WebDriver driver) {
+	public ProdutoPage(WebDriver driver) {
 		super(driver);
 	}
 
@@ -18,20 +17,19 @@ public class BuscaPage extends BasePage {
 		} catch (Exception e) {
 			text = driver.findElement(By.xpath("//span[@class='ng-binding']")).getText();
 			e.getMessage();
-			return  text;
+			return text;
 		}
-//		return driver.findElement(By.xpath("//a[@class='productName ng-binding']")).getText();
 		return text;
 	}
 
-	public String encontrou(){
+	public String encontrou() {
 		WebElement element = driver.findElement(By.xpath("//a[@class='productName ng-binding']"));
 		return element.getText();
 	}
-	public ErrorPage naoEncontrou() {
-		
-		//return element.getText();
-		return new ErrorPage(driver);
+
+	public ErrorProdutoPage naoEncontrou() {
+
+		return new ErrorProdutoPage(driver);
 	}
 
 }

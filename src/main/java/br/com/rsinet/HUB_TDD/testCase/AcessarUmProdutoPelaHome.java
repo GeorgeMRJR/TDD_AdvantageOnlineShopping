@@ -17,38 +17,44 @@ import br.com.rsinet.HUB_TDD.suporte.Web;
 public class AcessarUmProdutoPelaHome {
 
 	private WebDriver driver;
- 
+
 	@Before
 	public void setUp() {
-		driver = Web.createChrome();
+		driver = Web.inicializarDriver();
 	}
 
 	@Test
-	public void deveAbrirPaginaDeUmProdutoPelaCategoriaComSucesso() throws Exception {
+	public void DeveAbrirPaginaDeUmProdutoPelaCategoria() throws Exception {
 
-		ExcelUtils.setExcelFile("AcessarUmProdutoPelaHome_P");
-		String idCategoria = ExcelUtils.getCellData(1, 1);
+		// massa
+		ExcelUtils.setExcelFile("AcessarUmProdutoPelaHome_Po");
+		String Categoria = ExcelUtils.getCellData(1, 1);
 		String produto = ExcelUtils.getCellData(1, 2);
 
-		String produtoPage = new HomePage(driver).clicarCategoria(idCategoria).ClicarEm(produto).produtoAtualTxt();
+		// teste
+		String produtoPage = new HomePage(driver).clicarCategoria(Categoria).ClicarEm(produto).produtoAtualTxt();
 
 		assertEquals(produto.toLowerCase(), produtoPage.toLowerCase());
 
+		// Screenshot
 		String testName = new Throwable().getStackTrace()[0].getMethodName();
 		String nomeDoArquivo = "evidencias\\" + Generator.dataHoraParaArquivo() + testName + ".png";
 		Screenshot.tirar(driver, nomeDoArquivo);
 	}
 
 	@Test
-	public void deveAbrirPaginaDeUmProdutoPelaCategoriaComFalha() throws Exception  {
-		ExcelUtils.setExcelFile("AcessarUmProdutoPelaHome_N");
+	public void DeveTentarAbrirPaginaDeUmProdutoInesistentePelaCategoria() throws Exception {
+		// massa
+		ExcelUtils.setExcelFile("AcessarUmProdutoPelaHome_Ne");
 		String idCategoria = ExcelUtils.getCellData(1, 1);
 		String produto = ExcelUtils.getCellData(1, 2);
-		
+
+		// teste
 		String produtoPageValido = new HomePage(driver).clicarCategoria(idCategoria).ClicarEmProdutoValido(produto);
 
 		assertFalse(produtoPageValido.contains("product"));
 
+		// Screenshot
 		String testName = new Throwable().getStackTrace()[0].getMethodName();
 		String nomeDoArquivo = "evidencias\\" + Generator.dataHoraParaArquivo() + testName + ".png";
 		Screenshot.tirar(driver, nomeDoArquivo);
@@ -56,6 +62,6 @@ public class AcessarUmProdutoPelaHome {
 
 	@After
 	public void tearDown() throws InterruptedException {
-		driver.quit();
+		Web.fecharDriver();
 	}
 }

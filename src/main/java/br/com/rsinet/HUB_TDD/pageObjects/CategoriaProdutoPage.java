@@ -11,12 +11,12 @@ public class CategoriaProdutoPage extends BasePage {
 		super(driver);
 	}
 
-	public BuscaPage ClicarEm(String produto) {
+	public ProdutoPage ClicarEm(String produto) {
 		WebElement element = driver.findElement(By.linkText(produto));
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click();", element);
 
-		return new BuscaPage(driver);
+		return new ProdutoPage(driver);
 	}
 
 	public String ClicarEmProdutoValido(String produto) {

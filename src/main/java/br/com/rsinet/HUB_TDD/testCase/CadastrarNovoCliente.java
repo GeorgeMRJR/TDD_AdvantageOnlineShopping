@@ -1,5 +1,7 @@
 package br.com.rsinet.HUB_TDD.testCase;
 
+
+
 import static org.junit.Assert.*;
 
 import org.junit.After;
@@ -19,25 +21,28 @@ public class CadastrarNovoCliente {
 	
 	@Before
 	public void setUp() {
-		driver = Web.createChrome();
+		driver = Web.inicializarDriver();
 	}
 
 	  @Test
-	  public void DeveCadasTrarUmNovoClienteComSucessoTest() throws Exception {
-		  ExcelUtils.setExcelFile("CadastrarNovoCliente_N");
-			String nomeusuario = ExcelUtils.getCellData(1, 1);
-			String senha = ExcelUtils.getCellData(1, 2);
-			String Resenha = ExcelUtils.getCellData(1, 3);
-			String email = ExcelUtils.getCellData(1, 4);
-			String primeiroNome = ExcelUtils.getCellData(1, 5);
-			String segundoNome = ExcelUtils.getCellData(1, 6);
-			String telefone = ExcelUtils.getCellData(1, 7);
-			String continente = ExcelUtils.getCellData(1, 8);
-			String cidade = ExcelUtils.getCellData(1, 9);
-			String estado = ExcelUtils.getCellData(1, 10);
-			String endereco = ExcelUtils.getCellData(1, 11);
-			String codPostal = ExcelUtils.getCellData(1, 12);
+	  public void DeveCadasTrarUmNovoClienteComSucesso() throws Exception {
+		  //massa
+		  	ExcelUtils.setExcelFile("CadastrarNovoCliente_Po");
+		  	int col=2;
+			String nomeusuario = ExcelUtils.getCellData(col, 1);
+			String senha = ExcelUtils.getCellData(col, 2);
+			String Resenha = ExcelUtils.getCellData(col, 3);
+			String email = ExcelUtils.getCellData(col, 4);
+			String primeiroNome = ExcelUtils.getCellData(col, 5);
+			String segundoNome = ExcelUtils.getCellData(col, 6);
+			String telefone = ExcelUtils.getCellData(col, 7);
+			String continente = ExcelUtils.getCellData(col, 8);
+			String cidade = ExcelUtils.getCellData(col, 9);
+			String estado = ExcelUtils.getCellData(col, 10);
+			String endereco = ExcelUtils.getCellData(col, 11);
+			String codPostal = ExcelUtils.getCellData(col, 12);
 			
+			//teste
 			boolean usuarioLogado = new HomePage(driver)
 				.clicarUsuario()
 				.clicarNewAccount()
@@ -59,6 +64,7 @@ public class CadastrarNovoCliente {
 			
 			assertTrue(usuarioLogado);
 			
+			// Screenshot
 			String testName = new Throwable().getStackTrace()[0].getMethodName();
 			String nomeDoArquivo = "evidencias\\" + Generator.dataHoraParaArquivo() + testName + ".png";
 			Screenshot.tirar(driver, nomeDoArquivo);
@@ -66,21 +72,24 @@ public class CadastrarNovoCliente {
 	
 	
 	@Test
-	public void DeveCadasTrarUmNovoClienteComFalha() throws Exception {
-		  	ExcelUtils.setExcelFile("CadastrarNovoCliente_N");
-			String nomeusuario = ExcelUtils.getCellData(1, 1);
-			String senha = ExcelUtils.getCellData(1, 2);
-			String Resenha = ExcelUtils.getCellData(1, 3);
-			String email = ExcelUtils.getCellData(1, 4);
-			String primeiroNome = ExcelUtils.getCellData(1, 5);
-			String segundoNome = ExcelUtils.getCellData(1, 6);
-			String telefone = ExcelUtils.getCellData(1, 7);
-			String continente = ExcelUtils.getCellData(1, 8);
-			String cidade = ExcelUtils.getCellData(1, 9);
-			String estado = ExcelUtils.getCellData(1, 10);
-			String endereco = ExcelUtils.getCellData(1, 11);
-			String codPostal = ExcelUtils.getCellData(1, 12);
+	public void DeveTentarCadasTrarUmNovoClienteComFalha() throws Exception {
+			//massa
+		  	ExcelUtils.setExcelFile("CadastrarNovoCliente_Ne");
+		  	int col=1;
+			String nomeusuario = ExcelUtils.getCellData(col, 1);
+			String senha = ExcelUtils.getCellData(col, 2);
+			String Resenha = ExcelUtils.getCellData(col, 3);
+			String email = ExcelUtils.getCellData(col, 4);
+			String primeiroNome = ExcelUtils.getCellData(col, 5);
+			String segundoNome = ExcelUtils.getCellData(col, 6);
+			String telefone = ExcelUtils.getCellData(col, 7);
+			String continente = ExcelUtils.getCellData(col, 8);
+			String cidade = ExcelUtils.getCellData(col, 9);
+			String estado = ExcelUtils.getCellData(col, 10);
+			String endereco = ExcelUtils.getCellData(col, 11);
+			String codPostal = ExcelUtils.getCellData(col, 12);
 			
+			//teste
 		boolean usuarioLogado = new HomePage(driver)
 			.clicarUsuario()
 			.clicarNewAccount()
@@ -102,13 +111,14 @@ public class CadastrarNovoCliente {
 		
 		assertFalse(usuarioLogado);
 		
+		// Screenshot
 		String testName = new Throwable().getStackTrace()[0].getMethodName();
 		String nomeDoArquivo = "evidencias\\" + Generator.dataHoraParaArquivo() + testName + ".png";
 		Screenshot.tirar(driver, nomeDoArquivo);
 	}
 
 	@After
-	public void tearDown() throws InterruptedException {
-		driver.quit();
+	public void tearDown() {
+		Web.fecharDriver();
 	}
 }

@@ -28,13 +28,14 @@ public class BasePage {
 		return this;
 	}
 
-	public BuscaPage buscar(String produto) {
+	public ProdutoPage buscar(String produto) {
 		driver.findElement(By.id("autoComplete")).sendKeys("" + produto + "" + Keys.ENTER);
-		return new BuscaPage(driver);
+		return new ProdutoPage(driver);
 	}
+
 	public String urlAtual() {
 		return driver.getCurrentUrl();
-		
+
 	}
-	
+
 }

@@ -11,8 +11,8 @@ public class CadastroPage extends BasePage {
 		super(driver);
 	}
 
-	public CadastroPage DigitarNomeUsuario(String NomeUsuario){
-		
+	public CadastroPage DigitarNomeUsuario(String NomeUsuario) {
+
 		driver.findElement(By.name("usernameRegisterPage")).sendKeys(NomeUsuario);
 		return this;
 	}
@@ -78,6 +78,7 @@ public class CadastroPage extends BasePage {
 		driver.findElement(By.name("i_agree")).click();
 		return this;
 	}
+
 	public CadastroPage textoDoErro() {
 		driver.findElement(By.xpath("//label[@class='center block smollMargin marked-element']")).getText();
 		return this;
@@ -87,6 +88,5 @@ public class CadastroPage extends BasePage {
 		driver.findElement(By.id("register_btnundefined")).sendKeys(Keys.ENTER);
 		return new HomePage(driver);
 	}
-	
 
 }
