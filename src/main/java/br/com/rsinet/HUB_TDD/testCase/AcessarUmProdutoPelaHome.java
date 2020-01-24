@@ -1,12 +1,13 @@
 package br.com.rsinet.HUB_TDD.testCase;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
+
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import br.com.rsinet.HUB_TDD.pageObjects.HomePage;
 import br.com.rsinet.HUB_TDD.suporte.ExcelUtils;
@@ -18,7 +19,7 @@ public class AcessarUmProdutoPelaHome {
 
 	private WebDriver driver;
 
-	@Before
+	@BeforeMethod
 	public void setUp() {
 		driver = Web.inicializarDriver();
 	}
@@ -60,7 +61,7 @@ public class AcessarUmProdutoPelaHome {
 		Screenshot.tirar(driver, nomeDoArquivo);
 	}
 
-	@After
+	@AfterMethod
 	public void tearDown() throws InterruptedException {
 		Web.fecharDriver();
 	}

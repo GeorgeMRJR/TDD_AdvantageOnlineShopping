@@ -1,0 +1,9 @@
+<suite name="caseTest">
+	<test name="testngTest">
+		<classes>
+			<class name="br.com.rsinet.HUB_TDD.testCase.AcessarUmProdutoPelaHome" />
+			<class name="br.com.rsinet.HUB_TDD.testCase.BuscarUmProdutoPelaBusca" />
+			<class name="br.com.rsinet.HUB_TDD.testCase.CadastrarNovoCliente" />
+		</classes>
+	</test>
+</suite>

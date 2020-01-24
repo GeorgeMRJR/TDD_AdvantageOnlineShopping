@@ -2,12 +2,13 @@ package br.com.rsinet.HUB_TDD.testCase;
 
 
 
-import static org.junit.Assert.*;
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import br.com.rsinet.HUB_TDD.pageObjects.HomePage;
 import br.com.rsinet.HUB_TDD.suporte.ExcelUtils;
@@ -19,7 +20,7 @@ import br.com.rsinet.HUB_TDD.suporte.Web;
 public class CadastrarNovoCliente {
 	private WebDriver driver;
 	
-	@Before
+	@BeforeMethod
 	public void setUp() {
 		driver = Web.inicializarDriver();
 	}
@@ -28,7 +29,7 @@ public class CadastrarNovoCliente {
 	  public void DeveCadasTrarUmNovoClienteComSucesso() throws Exception {
 		  //massa
 		  	ExcelUtils.setExcelFile("CadastrarNovoCliente_Po");
-		  	int col=2;
+		  	int col=3;
 			String nomeusuario = ExcelUtils.getCellData(col, 1);
 			String senha = ExcelUtils.getCellData(col, 2);
 			String Resenha = ExcelUtils.getCellData(col, 3);
@@ -61,7 +62,7 @@ public class CadastrarNovoCliente {
 				.ClicarCbxAceitoTermos()
 				.ClicarEmRegistrar()
 				.usuarioLogado();
-			
+			System.out.println("suce>>>>>"+usuarioLogado);
 			assertTrue(usuarioLogado);
 			
 			// Screenshot
@@ -75,7 +76,7 @@ public class CadastrarNovoCliente {
 	public void DeveTentarCadasTrarUmNovoClienteComFalha() throws Exception {
 			//massa
 		  	ExcelUtils.setExcelFile("CadastrarNovoCliente_Ne");
-		  	int col=1;
+		  	int col=3;
 			String nomeusuario = ExcelUtils.getCellData(col, 1);
 			String senha = ExcelUtils.getCellData(col, 2);
 			String Resenha = ExcelUtils.getCellData(col, 3);
@@ -107,8 +108,8 @@ public class CadastrarNovoCliente {
 			.DigitarCodigoPostal(codPostal)
 			.ClicarCbxAceitoTermos()
 			.ClicarEmRegistrar()
-			.usuarioLogado();
-		
+			.cadastroFalhou();
+		System.out.println("falha>>>>"+usuarioLogado);
 		assertFalse(usuarioLogado);
 		
 		// Screenshot
@@ -117,7 +118,7 @@ public class CadastrarNovoCliente {
 		Screenshot.tirar(driver, nomeDoArquivo);
 	}
 
-	@After
+	@AfterMethod
 	public void tearDown() {
 		Web.fecharDriver();
 	}

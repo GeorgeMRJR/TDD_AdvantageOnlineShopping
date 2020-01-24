@@ -8,8 +8,7 @@ import org.openqa.selenium.WebElement;
 
 public class HomePage extends BasePage {
 
-
-	public HomePage(WebDriver driver ) {
+	public HomePage(WebDriver driver) {
 		super(driver);
 	}
 
@@ -55,15 +54,19 @@ public class HomePage extends BasePage {
 	}
 
 	public CategoriaProdutoPage clicarCategoria(String Categoria) {
-		
-		WebElement element = driver.findElement(By.xpath("//span[.='"+Categoria+"']"));
 
-		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		WebElement element = driver.findElement(By.xpath("//span[.='" + Categoria + "']"));
+
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click();", element);
-		
+
 		return new CategoriaProdutoPage(driver);
-		
-		
+
+	}
+
+	public boolean cadastroFalhou() {
+
+		return !driver.getCurrentUrl().contains("register");
 	}
 
 }

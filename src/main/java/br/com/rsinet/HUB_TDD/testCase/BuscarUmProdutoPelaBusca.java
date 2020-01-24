@@ -2,14 +2,12 @@ package br.com.rsinet.HUB_TDD.testCase;
 
 
 
-import static org.junit.Assert.assertEquals;
+import static org.testng.Assert.assertEquals;
 
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import br.com.rsinet.HUB_TDD.pageObjects.BasePage;
 import br.com.rsinet.HUB_TDD.suporte.ExcelUtils;
@@ -21,7 +19,7 @@ public class BuscarUmProdutoPelaBusca {
 
 	private WebDriver driver;
 
-	@Before
+	@BeforeMethod
 	public void setUp() {
 		driver = Web.inicializarDriver();
 	}
@@ -61,7 +59,7 @@ public class BuscarUmProdutoPelaBusca {
 		Screenshot.tirar(driver, nomeDoArquivo);
 	}
 
-	@After
+	@AfterMethod
 	public void tearDown() throws InterruptedException {
 		Web.fecharDriver();
 	}
