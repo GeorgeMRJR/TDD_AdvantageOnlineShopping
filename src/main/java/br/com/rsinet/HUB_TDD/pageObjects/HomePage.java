@@ -65,7 +65,7 @@ public class HomePage extends BasePage {
 	}
 
 	public boolean cadastroFalhou() {
-
+		rolar(-400);
 		return !driver.getCurrentUrl().contains("register");
 	}
 

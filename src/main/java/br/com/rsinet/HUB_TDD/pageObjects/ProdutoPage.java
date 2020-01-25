@@ -24,11 +24,12 @@ public class ProdutoPage extends BasePage {
 
 	public String encontrou() {
 		WebElement element = driver.findElement(By.xpath("//a[@class='productName ng-binding']"));
+		waitJS();
 		return element.getText();
 	}
 
 	public ErrorProdutoPage naoEncontrou() {
-
+		waitJS();
 		return new ErrorProdutoPage(driver);
 	}
 

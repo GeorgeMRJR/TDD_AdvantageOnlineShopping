@@ -28,7 +28,9 @@ Teste TDD da loja online "Advantage Online Shopping"
 	
 	✓Suporte
 		✓ ExelUtils - classe responsável por gerir um arquivo do exel com seus gets e sets
+		✓ ExcelConsumer - classe responsável por comsumir os dados da massa
 		✓Generator - classe responsável por gerar uma string com a data e hora atual usada no Screenshot
+		✓ExtentReport - classe responsável por gerar um relatorio com o resultado dos testes
 		✓Screenshot - classe responsável por tirar uma Screenshot do resultado do test
 		✓Web - Classe responsável em gerar  WebDriver e cumprir todos os requisitos pré-teste
 		

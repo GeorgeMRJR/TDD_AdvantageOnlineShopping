@@ -1,6 +1,7 @@
 package br.com.rsinet.HUB_TDD.pageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,6 +9,8 @@ import org.openqa.selenium.WebElement;
 public class BasePage {
 	protected WebDriver driver;
 	private WebElement logado;
+	private JavascriptExecutor js;
+
 
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
@@ -16,8 +19,8 @@ public class BasePage {
 
 	public boolean usuarioLogado() {
 		boolean displayed = false;
-		logado = driver.findElement(By.xpath("//span[@class='hi-user containMiniTitle ng-binding']"));
 		try {
+			logado = driver.findElement(By.xpath("//span[@class='hi-user containMiniTitle ng-binding']"));
 			displayed = logado.isDisplayed();
 		} catch (Exception e) {
 			return displayed;
@@ -38,6 +41,14 @@ public class BasePage {
 	public String urlAtual() {
 		return driver.getCurrentUrl();
 
+	}
+	public void rolar(int qtd) {
+		js = (JavascriptExecutor) driver;
+		js.executeScript("javascript:window.scrollBy(0," + qtd + ")");
+	}
+	public void waitJS() {
+		js = (JavascriptExecutor) driver;
+		js.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 1000);");
 	}
 
 }

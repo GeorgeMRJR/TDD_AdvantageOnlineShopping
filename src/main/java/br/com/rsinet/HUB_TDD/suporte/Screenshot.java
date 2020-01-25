@@ -2,6 +2,7 @@ package br.com.rsinet.HUB_TDD.suporte;
 
 
 import java.io.File;
+import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -11,13 +12,18 @@ import org.openqa.selenium.WebDriver;
 
 public class Screenshot {
 
-	public static void tirar(WebDriver navegador, String arquivo) {
-		File screenshot = ((TakesScreenshot)navegador).getScreenshotAs(OutputType.FILE);
+	public static String gerarScreenShot(WebDriver driver, String nome) {
+		File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+		String destino = System.getProperty("user.dir") + "/target/reportScreenshot/" + nome + "-"
+				+ Generator.dataHoraParaArquivo() + ".png";
+
 		try {
-			FileUtils.copyFile(screenshot, new File(arquivo));
-		} catch (Exception e) {
-			System.out.println("erro ao copiar arquivo para a pasta " + e.getMessage());
+			FileUtils.copyFile(file, new File(destino));
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
+		return destino;
 	}
 	
 }
