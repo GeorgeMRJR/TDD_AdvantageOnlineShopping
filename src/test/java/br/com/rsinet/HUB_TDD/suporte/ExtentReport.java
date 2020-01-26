@@ -21,18 +21,24 @@ public class ExtentReport {
 		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/target/reportRelatorio/"
 				+ Generator.dataHoraParaArquivo() + ".html");
 
-		htmlReporter.config().setDocumentTitle("Automation Report");
-		htmlReporter.config().setReportName("Functional Report");
+		htmlReporter.config().setDocumentTitle("TDD - Advantage Online Shopping");
+		htmlReporter.config().setReportName("Relatorio AdvantageOnlineShopping");
 		htmlReporter.config().setTheme(Theme.DARK);
 
 		extent = new ExtentReports();
 
 		extent.attachReporter(htmlReporter);
 
-		extent.setSystemInfo("HostName", "LocalHost");
-		extent.setSystemInfo("OS", "Windows");
-		extent.setSystemInfo("Tester Name", "George Luiz Moraes Rosa Junior");
+		extent.setSystemInfo("User Name", System.getProperty("user.name"));
+		extent.setSystemInfo("Time zone", System.getProperty("user.timezone"));
+		extent.setSystemInfo("Machine", "Windows 10 " + "64 Bit");
 		extent.setSystemInfo("Browser", "Chrome");
+		extent.setSystemInfo("Selenium", "3.141.59");
+		extent.setSystemInfo("TestNG", "6.14.3");
+		extent.setSystemInfo("Maven", "4.0.0");
+		extent.setSystemInfo("Java Version", "1.8");
+		
+		
 		return extent;
 	}
 
