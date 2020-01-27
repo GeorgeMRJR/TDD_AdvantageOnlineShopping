@@ -46,9 +46,4 @@ public class BasePage {
 		js.executeScript("javascript:window.scrollBy(0," + qtd + ")");
 	}
 
-	public void waitJS() {
-		js = (JavascriptExecutor) driver;
-		js.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 1000);");
-	}
-
 }

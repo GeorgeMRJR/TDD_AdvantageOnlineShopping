@@ -1,5 +1,7 @@
 package br.com.rsinet.HUB_TDD.pageObjects;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +22,7 @@ public class CategoriaProdutoPage extends BasePage {
 	}
 
 	public String ClicarEmProdutoValido(String produto) {
+		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 		try {
 			WebElement element = driver.findElement(By.linkText(produto));
 			JavascriptExecutor executor = (JavascriptExecutor) driver;

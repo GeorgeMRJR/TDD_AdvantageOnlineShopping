@@ -15,7 +15,7 @@ public class Web {
 			driver.manage().window().maximize();
 			driver.get("https://www.advantageonlineshopping.com/");
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+//			driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		}
 		return driver;
 	}
