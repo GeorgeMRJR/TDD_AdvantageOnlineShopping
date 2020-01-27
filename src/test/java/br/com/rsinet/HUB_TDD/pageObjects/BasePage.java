@@ -11,11 +11,9 @@ public class BasePage {
 	private WebElement logado;
 	private JavascriptExecutor js;
 
-
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
 	}
-
 
 	public boolean usuarioLogado() {
 		boolean displayed = false;
@@ -42,10 +40,12 @@ public class BasePage {
 		return driver.getCurrentUrl();
 
 	}
+
 	public void rolar(int qtd) {
 		js = (JavascriptExecutor) driver;
 		js.executeScript("javascript:window.scrollBy(0," + qtd + ")");
 	}
+
 	public void waitJS() {
 		js = (JavascriptExecutor) driver;
 		js.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 1000);");

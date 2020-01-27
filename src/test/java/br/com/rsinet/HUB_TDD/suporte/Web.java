@@ -10,6 +10,7 @@ public class Web {
 
 	public static WebDriver inicializarDriver() {
 		if (driver == null) {
+			System.setProperty("webdriver.chrome.driver", "C:/driverWebDriver/chromedriver.exe");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.get("https://www.advantageonlineshopping.com/");
